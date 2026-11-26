@@ -42,8 +42,12 @@
 <div class="ticket-list">
     <%
     try {
-        Class.forName("oracle.jdbc.driver.OracleDriver");
-        Connection con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe", "system", "system");
+        Class.forName("org.postgresql.Driver");
+        String dbUrl = System.getenv("DB_URL");
+        String dbUser = System.getenv("DB_USER");
+        String dbPassword = System.getenv("DB_PASSWORD");
+        if (dbUrl == null || dbUser == null || dbPassword == null) throw new SQLException("Database environment variables are missing.");
+        Connection con = DriverManager.getConnection(dbUrl, dbUser, dbPassword);
         
         // 2. Query mein WHERE clause lagaya hai (p_name = loggedInUser)
         // Note: Yahan 'p_name' tumhari table ka column hai jo photo mein dikha tha
