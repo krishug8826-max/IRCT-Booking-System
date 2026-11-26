@@ -1,0 +1,14 @@
+services:
+  - type: web
+    name: irct-booking-system
+    runtime: docker
+    region: singapore
+    plan: free
+    healthCheckPath: /
+    envVars:
+      - key: DB_URL
+        value: jdbc:postgresql://pg-118ffb93-krishu-3c46.l.aivencloud.com:26392/defaultdb?sslmode=require&currentSchema=irct
+      - key: DB_USER
+        value: avnadmin
+      - key: DB_PASSWORD
+        sync: false
