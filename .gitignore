@@ -1,0 +1,12 @@
+target/
+*.class
+*.log
+.env
+.env.*
+!.env.example
+.idea/
+.project
+.classpath
+.settings/
+.metadata/
+Servers/

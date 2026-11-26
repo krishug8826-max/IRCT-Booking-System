@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RAILPRO | JOIN THE NETWORK</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Poppins:wght@300;500;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root { --accent: #00f2ff; --neon: #ff00ea; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+
+        body {
+            background: #000; min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 40px 20px;
+            background: radial-gradient(circle at center, rgba(255, 0, 234, 0.05) 0%, #000 100%),
+                        url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2000&auto=format&fit=crop') no-repeat center center/cover fixed;
+        }
+
+        /* Giant Registration Box */
+        .reg-wrapper {
+            width: 100%; max-width: 850px; padding: 3px; border-radius: 40px;
+            background: linear-gradient(135deg, var(--accent), var(--neon));
+            box-shadow: 0 0 60px rgba(255, 0, 234, 0.2);
+        }
+
+        .reg-card {
+            background: rgba(10, 12, 18, 0.96); border-radius: 37px; padding: clamp(30px, 5vw, 60px);
+            backdrop-filter: blur(25px);
+        }
+
+        h1 { font-family: 'Orbitron'; font-size: clamp(24px, 5vw, 40px); text-align: center; letter-spacing: 5px; margin-bottom: 10px; }
+        
+        .line-effort {
+            height: 5px; width: 80px; background: var(--neon); border-radius: 10px; margin: 0 auto 40px;
+            box-shadow: 0 0 20px var(--neon); animation: stretch 3s infinite;
+        }
+        @keyframes stretch { 0%, 100% { width: 80px; } 50% { width: 200px; } }
+
+        /* Multi-column Grid for Heavy Inputs */
+        .input-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 40px;
+        }
+
+        .group { text-align: left; }
+        .group label {
+            display: block; font-family: 'Orbitron'; font-size: 11px; color: var(--accent);
+            margin-bottom: 12px; letter-spacing: 2px; font-weight: 800;
+        }
+        .group input, .group select {
+            width: 100%; padding: 18px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 15px; color: white; font-size: 15px; outline: none; transition: 0.3s;
+        }
+        .group input:focus { border-color: var(--neon); box-shadow: 0 0 20px rgba(255, 0, 234, 0.2); background: rgba(255,255,255,0.07); }
+        .group select option { background: #111; color: white; }
+
+        .btn-reg {
+            width: 100%; padding: 22px; border: none; border-radius: 18px;
+            background: linear-gradient(90deg, #00f2ff, #0072ff);
+            color: white; font-family: 'Orbitron'; font-size: 18px; font-weight: 900;
+            cursor: pointer; transition: 0.5s; letter-spacing: 4px;
+            box-shadow: 0 10px 30px rgba(0, 114, 255, 0.4);
+        }
+        .btn-reg:hover { transform: translateY(-5px) scale(1.02); box-shadow: 0 15px 50px rgba(0, 242, 255, 0.6); }
+
+        .footer { text-align: center; margin-top: 30px; font-size: 14px; color: #555; }
+        .footer a { color: var(--neon); text-decoration: none; font-weight: 600; }
+    </style>
+</head>
+<body>
+
+    <div class="reg-wrapper">
+        <div class="reg-card">
+            <h1>REGISTRATION</h1>
+            <div class="line-effort"></div>
+
+            <form action="RegisterServlet" method="POST">
+                <div class="input-grid">
+                    <div class="group">
+                        <label>FULL NAME</label>
+                        <input type="text" name="name" placeholder="Enter Full Name" required>
+                    </div>
+                    <div class="group">
+                        <label>EMAIL ADDRESS</label>
+                        <input type="email" name="email" placeholder="email@example.com" required>
+                    </div>
+
+                    <div class="group">
+                        <label>USER ID</label>
+                        <input type="text" name="username" placeholder="Choose Username" required>
+                    </div>
+                    <div class="group">
+                        <label>PASSWORD</label>
+                        <input type="password" name="password" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="group">
+                        <label>PHONE NUMBER</label>
+                        <input type="text" name="phone" placeholder="+91 XXXXX XXXXX" required>
+                    </div>
+                    <div class="group">
+                        <label>GENDER</label>
+                        <select name="gender" required>
+                            <option value="">Select Gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-reg">CREATE ACCOUNT</button>
+            </form>
+
+            <div class="footer">
+                Already part of the network? <a href="login.html">Login Here</a><br><br>
+                <a href="index.jsp" style="color:#333; font-size:11px;">← Return to Command Center</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
